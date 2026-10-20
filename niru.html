@@ -1,0 +1,426 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nirman Sharma - Important Survey</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #111827, #312e81);
+        color: white;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 480px;
+        background: rgba(255,255,255,0.10);
+        backdrop-filter: blur(15px);
+        border-radius: 25px;
+        padding: 30px 25px;
+        text-align: center;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+        font-size: 27px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 21px;
+        margin-top: 25px;
+    }
+
+    p {
+        line-height: 1.6;
+        color: #e5e7eb;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        margin: 7px 0;
+        border: none;
+        border-radius: 14px;
+        background: white;
+        color: #111827;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.03);
+    }
+
+    .yes {
+        background: #22c55e;
+        color: white;
+    }
+
+    .monitor {
+        background: #6366f1;
+        color: white;
+    }
+
+    .danger {
+        background: #ef4444;
+        color: white;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        border-radius: 12px;
+        border: none;
+        margin: 10px 0;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .emoji {
+        font-size: 45px;
+    }
+
+    .small {
+        font-size: 13px;
+        color: #cbd5e1;
+    }
+
+    .price {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- STEP 1 -->
+    <div id="step1">
+
+        <div class="emoji">👀</div>
+
+        <h1>Quick Question</h1>
+
+        <p>
+            Do you know <b>Nirman Sharma</b>?
+        </p>
+
+        <button class="yes" onclick="showStep(2)">
+            YES 😎
+        </button>
+
+        <button onclick="notKnow()">
+            NO 😭
+        </button>
+
+    </div>
+
+
+    <!-- STEP 2 -->
+    <div id="step2" class="hidden">
+
+        <div class="emoji">🤔</div>
+
+        <h2>How are you related to Nirman?</h2>
+
+        <button onclick="relationship('Mom')">
+            1. MOM 👩
+        </button>
+
+        <button onclick="relationship('Father')">
+            2. FATHER 👨
+        </button>
+
+        <button onclick="relationship('Uncle')">
+            3. UNCLE 🧔
+        </button>
+
+        <button onclick="relationship('Mama')">
+            4. MAMA 👨‍🦱
+        </button>
+
+        <button onclick="relationship('Friend')">
+            5. FRIEND 🗿
+        </button>
+
+        <button onclick="showCustom()">
+            6. NOT IN LIST 😭
+        </button>
+
+        <div id="customBox" class="hidden">
+
+            <input
+                id="customRelation"
+                type="text"
+                placeholder="Type your relationship..."
+            >
+
+            <button class="yes" onclick="submitCustom()">
+                CONTINUE ➜
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- STEP 3 -->
+    <div id="step3" class="hidden">
+
+        <div class="emoji">💰</div>
+
+        <h2>WHAT IS YOUR EARNING?</h2>
+
+        <p class="small">
+            Don't worry, this is just part of the totally serious survey 😂
+        </p>
+
+        <button onclick="earning('Above 20K')">
+            1. ABOVE 20K 💵
+        </button>
+
+        <button onclick="earning('Above 40K')">
+            2. ABOVE 40K 💰
+        </button>
+
+        <button onclick="earning('Not earning')">
+            3. NOT EARNING 😭
+        </button>
+
+    </div>
+
+
+    <!-- STEP 4 -->
+    <div id="step4" class="hidden">
+
+        <div class="emoji">🥹</div>
+
+        <h1>Okay... Now The Real Reason 😭</h1>
+
+        <p>
+            As you know, <b>Nirman really wants a monitor.</b>
+        </p>
+
+        <p>
+            And bro REALLY REALLY wants one 😭😭😭
+        </p>
+
+        <p>
+            His current setup needs a proper display,
+            and he found some affordable options.
+        </p>
+
+        <div class="price">
+            Rs. 3,690 – Rs. 6,666
+        </div>
+
+        <p>
+            Soooo...
+        </p>
+
+        <h2>
+            Will you consider helping Nirman get a monitor? 🥹👉👈
+        </h2>
+
+        <button class="monitor" onclick="showMonitors()">
+            SHOW ME THE MONITORS 🖥️
+        </button>
+
+        <button class="yes" onclick="finalYes()">
+            YES, I WILL CONSIDER IT 🥹❤️
+        </button>
+
+        <button class="danger" onclick="finalNo()">
+            NO 😭
+        </button>
+
+    </div>
+
+
+    <!-- STEP 5 -->
+    <div id="step5" class="hidden">
+
+        <div class="emoji">🖥️</div>
+
+        <h1>Monitor Options</h1>
+
+        <p>
+            These are the monitors Nirman found:
+        </p>
+
+        <a href="https://www.daraz.com.np/products/hitech-22-led-monitor-with-vga-hdmi-supported-hitech-22-inch-fhd-monitor-i454024609-s2003115516.html"
+           target="_blank">
+
+            <button class="monitor">
+                22" FHD Monitor — Rs. 6,666 🖥️
+            </button>
+
+        </a>
+
+        <a href="https://www.daraz.com.np/products/hi-tech-17-inch-led-monitor-with-vga-hdmi-supported-hdmi-cable-included-black-in-color-i118351745-s1033551214.html"
+           target="_blank">
+
+            <button class="monitor">
+                17" Monitor — Rs. 3,690 🖥️
+            </button>
+
+        </a>
+
+        <button class="yes" onclick="finalYes()">
+            OKAY, I'LL THINK ABOUT IT 🥹
+        </button>
+
+    </div>
+
+
+    <!-- FINAL -->
+    <div id="final" class="hidden">
+
+        <div class="emoji">😭❤️</div>
+
+        <h1>THANK YOU 😭</h1>
+
+        <p>
+            Nirman has officially submitted his monitor request.
+        </p>
+
+        <p>
+            Your consideration means a lot to him 🥹
+        </p>
+
+        <h2>
+            #JusticeForNirmansMonitor 🖥️😭
+        </h2>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function hideAll() {
+    document.querySelectorAll(".card > div").forEach(div => {
+        div.classList.add("hidden");
+    });
+}
+
+function showStep(number) {
+    hideAll();
+    document.getElementById("step" + number).classList.remove("hidden");
+}
+
+function notKnow() {
+    alert("HOW DO YOU NOT KNOW NIRMAN 😭😭");
+}
+
+function relationship(type) {
+    console.log("Relationship:", type);
+    showStep(3);
+}
+
+function showCustom() {
+    document.getElementById("customBox").classList.remove("hidden");
+}
+
+function submitCustom() {
+
+    const value = document.getElementById("customRelation").value.trim();
+
+    if (value === "") {
+        alert("Bro you gotta type something 😭");
+        return;
+    }
+
+    console.log("Custom relationship:", value);
+
+    showStep(3);
+}
+
+function earning(type) {
+
+    console.log("Earning:", type);
+
+    hideAll();
+    document.getElementById("step4").classList.remove("hidden");
+}
+
+function showMonitors() {
+
+    hideAll();
+    document.getElementById("step5").classList.remove("hidden");
+}
+
+function finalYes() {
+
+    hideAll();
+    document.getElementById("final").classList.remove("hidden");
+
+    for(let i = 0; i < 25; i++) {
+
+        const emoji = document.createElement("div");
+
+        emoji.innerHTML = "😭";
+
+        emoji.style.position = "fixed";
+        emoji.style.left = Math.random() * 100 + "vw";
+        emoji.style.top = "-30px";
+        emoji.style.fontSize = "30px";
+        emoji.style.zIndex = "9999";
+        emoji.style.transition = "top 2s linear";
+
+        document.body.appendChild(emoji);
+
+        setTimeout(() => {
+            emoji.style.top = "110vh";
+        }, 50);
+
+        setTimeout(() => {
+            emoji.remove();
+        }, 2200);
+    }
+}
+
+function finalNo() {
+
+    alert(
+        "NIRMAN: 😭😭😭😭😭\n\n" +
+        "Please reconsider bro/sis/mom/dad 🥹"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
+```
